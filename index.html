@@ -59,14 +59,14 @@
   --bg:#101013; --surface:#17171b;
   --line:rgba(255,255,255,.075); --line-2:rgba(255,255,255,.18);
   --ink:#fff; --ink-2:#9d9da8; --ink-3:#5c5c67;
-  --coral:#966249; --coral-dim:rgba(150,98,73,.16);
+  --coral:#ffffff; --coral-dim:rgba(255,255,255,.08);
   /* ⚠️ 2.9 — --coral is a surface and rule colour; at text size on a dark page
      it measures under 3.0, so glyphs drawn in it use this lighter member. */
-  --coral-ink:#E2AE91;
+  --coral-ink:#ffffff;
   /* the required marker has to stay red to read as "required", but the
      error red is a surface value and measures under 3 as a 13px glyph. */
   --req:#E89393;
-  --ring:rgba(150,98,73,.20); --ring-soft:rgba(150,98,73,.10);
+  --ring:rgba(255,255,255,.20); --ring-soft:rgba(255,255,255,.10);
   --page:1760px;
   --t-display:clamp(44px,6.4vw,84px);
   --t-display-2:clamp(34px,4.6vw,60px);
@@ -294,23 +294,17 @@ img{display:block}
    a coral ring. Every other button on this page now reuses those exact values
    instead of carrying its own look. Anything new goes through .btn too. */
 .hero-cta{display:inline-flex;align-items:center;justify-content:center;gap:14px;
-  margin-top:34px;padding:18px var(--s4);border-radius:0;border:0;cursor:pointer;
+  margin-top:34px;padding:18px var(--s4);border-radius:6px;border:0;cursor:pointer;
   text-decoration:none;
   font-family:var(--sans);font-weight:500;font-size:17.5px;letter-spacing:-.02em;
   color:var(--ink);background:rgba(255,255,255,.028);
   -webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);
-  box-shadow:inset 0 0 0 1px rgba(255,255,255,.15),
-             0 9px 0 -3px rgba(255,255,255,.05),
-             0 18px 0 -7px rgba(255,255,255,.028),
-             0 22px 46px -26px rgba(0,0,0,.9);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.12);
   transition:transform .42s var(--ease),box-shadow .42s var(--ease),
              background .42s var(--ease),color .42s var(--ease)}
-.hero-cta:hover{transform:translateY(-3px);
+.hero-cta:hover{transform:none;
   background:rgba(255,255,255,.05);
-  box-shadow:inset 0 0 0 1px rgba(150,98,73,.52),
-             0 11px 0 -3px rgba(150,98,73,.10),
-             0 22px 0 -7px rgba(150,98,73,.045),
-             0 28px 54px -26px rgba(0,0,0,.95)}
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.32)}
 @media (max-width:700px){
   .hero{padding-left:var(--s2);padding-right:var(--s2)}
   .hero-eyebrow{margin-bottom:18px}
@@ -506,23 +500,17 @@ img{display:block}
    redrawn. Back is the same object with quieter ink — a second button style
    would be a second design system, which is the exact mistake this page made. */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:14px;
-  padding:18px var(--s4);border-radius:0;border:0;cursor:pointer;
+  padding:18px var(--s4);border-radius:6px;border:0;cursor:pointer;
   font-family:inherit;font-weight:500;font-size:17.5px;letter-spacing:-.02em;
   color:var(--ink);background:rgba(255,255,255,.028);
   -webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);
-  box-shadow:inset 0 0 0 1px rgba(255,255,255,.15),
-             0 9px 0 -3px rgba(255,255,255,.05),
-             0 18px 0 -7px rgba(255,255,255,.028),
-             0 22px 46px -26px rgba(0,0,0,.9);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.12);
   transition:transform .42s var(--ease),box-shadow .42s var(--ease),
              background .42s var(--ease),color .42s var(--ease)}
 .btn span{color:var(--coral-ink);transition:transform .42s var(--ease)}
-.btn:hover:not(:disabled){transform:translateY(-3px);
+.btn:hover:not(:disabled){transform:none;
   background:rgba(255,255,255,.05);
-  box-shadow:inset 0 0 0 1px rgba(150,98,73,.52),
-             0 11px 0 -3px rgba(150,98,73,.10),
-             0 22px 0 -7px rgba(150,98,73,.045),
-             0 28px 54px -26px rgba(0,0,0,.95)}
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.32)}
 .btn:hover:not(:disabled) span{transform:translateX(3px)}
 .btn:disabled{opacity:.4;cursor:not-allowed;transform:none}
 .btn-primary{min-width:220px}
@@ -607,7 +595,7 @@ img{display:block}
   box-shadow:inset 0 0 0 1px var(--line-2)}
 .field input:focus,.field textarea:focus,.field select:focus{
   outline:none;background:rgba(255,255,255,.04);
-  box-shadow:inset 0 0 0 1px rgba(150,98,73,.52)}
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.32)}
 .field textarea{min-height:110px;resize:vertical}
 .pay-detail-block.active{display:block;animation:stepIn .7s var(--ease) both}
 @media (prefers-reduced-motion:reduce){.pay-detail-block.active{animation:none}}
@@ -797,7 +785,7 @@ footer a:hover{color:var(--ink)}
   user-select:none;
   transition:color .3s var(--ease),border-color .3s var(--ease),
              background .3s var(--ease)}
-.pill:hover span{color:var(--ink);border-color:rgba(150,98,73,.52)}
+.pill:hover span{color:var(--ink);border-color:rgba(255,255,255,.32)}
 .pill input:checked + span{color:var(--ink);
   border-color:var(--coral);background:var(--coral-dim)}
 .pill input:focus-visible + span{outline:2px solid var(--ring);outline-offset:2px}
@@ -832,6 +820,11 @@ footer a:hover{color:var(--ink)}
 .progress-labels span{color:var(--ink-2)}
 .need-label{color:var(--ink-2)}
 .hero-eyebrow{color:var(--ink-2)}
+
+/* Focus (Or, 8.11.2026, same as ainsof.io): the browser's blue ring becomes our neutral one,
+   for keyboard focus only; a control with its own focus state keeps it. */
+:where(a,button,summary,select,input,textarea,[role="button"],[tabindex]):focus:not(:focus-visible){outline:none}
+:where(a,button,summary,select,input,textarea,[role="button"],[tabindex]):focus-visible{outline:2px solid rgba(255,255,255,.55);outline-offset:2px}
 </style>
 
 <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
